@@ -19,6 +19,7 @@ namespace Business.Concrete
         {
             //iş kodları kurallar yetki kontrolleri vs.
             return _CarDal.GetAll();
+
         }
     }
 }
