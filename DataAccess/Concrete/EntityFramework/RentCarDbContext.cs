@@ -13,9 +13,9 @@ namespace DataAccess.Concrete.EntityFramework
             optionsBuilder.UseSqlServer(@"Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = CarRentalDb; Integrated Security = True;");
         }
 
-        public DbSet<Car> Car { get; set; }
-        public DbSet <Brand> Brand { get; set; }
-        public DbSet<Color> Color { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet <Brand> Brands { get; set; }
+        public DbSet<Color> Colors { get; set; }
 
     }
 }
