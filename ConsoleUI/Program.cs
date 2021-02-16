@@ -11,9 +11,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             GetCarDetailsTest();
-            BrandListed();
         }
-
         private static void BrandListed()
         {
             Console.WriteLine("--------------All brands are listed-------------");
@@ -23,17 +21,19 @@ namespace ConsoleUI
                 Console.WriteLine(brand.BrandName);
             }
         }
-
         private static void GetCarDetailsTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            var result = carManager.GetCarDetails();
-            foreach (var item in result)
+
+            Console.WriteLine(string.Format("{0,-5} | {1,-10} | {2,-20} | {3,-10} | {4,-5} | {5,-5}", 
+                "ID", "Brand Name", "Car Name", "Model Year", "Color", "Daily Price"));
+
+            foreach (var item in carManager.GetCarDetails())
             {
-                Console.WriteLine("BrandName: {0} ----- CarName: {1} ----- ColorName: {2} ----- Daily Price: {3}", item.BrandName, item.CarName, item.ColorName, item.DailyPrice);
+                Console.WriteLine(string.Format("{0,-5} | {1,-10} | {2,-20} | {3,-10} | {4,-5} | {5,-5}", 
+                    item.CarId, item.BrandName, item.CarName, item.ModelYear, item.ColorName, item.DailyPrice));
             }
         }
-
         private static void AddCarTest()
         {
             CarManager carManager1 = new CarManager(new EfCarDal());
@@ -46,7 +46,6 @@ namespace ConsoleUI
                 Description = "Astra Dizel Manuel"
             });
         }
-
         private static void CarsDescriptionTest()
         {
             Console.WriteLine("--------------------All Cars Listed-----------------------");
