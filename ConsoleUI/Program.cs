@@ -12,7 +12,7 @@ namespace ConsoleUI
         {
             GetCarDetailsTest();
             //BrandTest();
-            //ColorTest();
+            ColorTest();
             //CarTest();
         }
       
@@ -79,10 +79,7 @@ namespace ConsoleUI
                 Console.WriteLine(brand.BrandName);
             }
             Console.WriteLine("--------------Brands listed by ID-------------");
-            foreach (var item in brandManager.GetById(4))
-            {
-                Console.WriteLine(item.BrandName);
-            }
+            Console.WriteLine(brandManager.GetById(4).BrandName);
         }
 
         private static void ColorTest()
@@ -103,10 +100,7 @@ namespace ConsoleUI
                 Console.WriteLine(color.ColorName);
             }
             Console.WriteLine("--------------Colors listed by ID-------------");
-            foreach (var color in colorManager.GetById(2))
-            {
-                Console.WriteLine(color.ColorName);
-            }
+            Console.WriteLine(colorManager.GetById(2).ColorName);       
         }
     }
 }
