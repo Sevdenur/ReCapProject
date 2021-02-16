@@ -29,11 +29,21 @@ namespace Business.Concrete
             }
         }
 
+        public void Delete(Car car)
+        {
+            _CarDal.Delete(car);
+            Console.WriteLine("deletion completed");
+        }
+
+        public void Update(Car car)
+        {
+            _CarDal.Update(car);
+        }
+
         public List<Car> GetAll()
         {
             //iş kodları kurallar yetki kontrolleri vs.
             return _CarDal.GetAll();
-
         }
 
         public List<Car> GetCarsByBrandId(int id)
@@ -50,5 +60,7 @@ namespace Business.Concrete
         {
             return _CarDal.GetCarDetails();
         }
+
+        
     }
 }
