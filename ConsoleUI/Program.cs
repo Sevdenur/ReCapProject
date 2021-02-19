@@ -34,10 +34,10 @@ namespace ConsoleUI
             UserManager userManager = new UserManager(new EfUserDal());
             var useradd = userManager.Add(new User
             {
-                FirstName = "Engin",
-                LastName = "Demiroğ",
-                Email = "engin@gmail.com",
-                Password = "123"
+                FirstName = "Nur",
+                LastName = "Demirel",
+                Email = "demirel@gmail.com",
+                Password = "1234"
             });
             Console.WriteLine(useradd.Message);
 
