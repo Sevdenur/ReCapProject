@@ -12,7 +12,26 @@ namespace ConsoleUI
         {
             //GetCarDetailsTest();
             //UserTest();
-            RentalTest();
+            //RentalTest();
+            GetRentalDetailsTest();
+        }
+
+        private static void GetRentalDetailsTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var rental = rentalManager.GetRentalDetails();
+            if (rental.Success)
+            {
+                foreach (var item in rental.Data)
+                {
+                    Console.WriteLine(string.Format("{0,-5} | {1,-10} | {2,-25} | {3,-10} | {4,-10} | {5,-20} | {6,-20} | {7,-20}",
+                        item.RentalId, item.BrandName, item.CarDescription, item.UserFirstName, item.UserLastName, item.CompanyName, item.RentDate, item.ReturnDate));
+                }
+            }
+            else
+            {
+                Console.WriteLine(rental.Message);
+            }
         }
 
         private static void RentalTest()
@@ -75,7 +94,6 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Message);
             }
-
         }
     }
 }
