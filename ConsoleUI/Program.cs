@@ -10,7 +10,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //GetCarDetailsTest();
+            GetCarDetailsTest();
             //UserTest();
             //RentalTest();
             GetRentalDetailsTest();
@@ -20,6 +20,7 @@ namespace ConsoleUI
         {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             var rental = rentalManager.GetRentalDetails();
+            Console.WriteLine("-------------------------RENTAL DETAİL LİST------------------------");
             if (rental.Success)
             {
                 foreach (var item in rental.Data)
@@ -78,7 +79,7 @@ namespace ConsoleUI
         private static void GetCarDetailsTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-
+            Console.WriteLine("-----------------------CAR DETAİL LİST--------------------------");
             Console.WriteLine(string.Format("{0,-5} | {1,-10} | {2,-25} | {3,-10} | {4,-5} | {5,-5}",
                 "ID", "Brand Name", "Car Name", "Model Year", "Color", "Daily Price"));
             var result = carManager.GetCarDetails();
