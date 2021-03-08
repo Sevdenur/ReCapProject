@@ -25,16 +25,10 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
-            if (car.DailyPrice > 0 && (car.Description).Length >= 2)
-            {
-                _CarDal.Add(car);
-                return new SuccessResult(Messages.CarAdded);
-            }
-            else
-            {
-                return new ErrorResult(Messages.NameInvalid);
-            }
-        }
+            _CarDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
+
+        }          
 
         public IResult Delete(Car car)
         {
