@@ -49,32 +49,32 @@ namespace ConsoleUI
             Console.WriteLine(rental.Message);
         }
 
-        private static void UserTest()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            var useradd = userManager.Add(new User
-            {
-                FirstName = "Nur",
-                LastName = "Demirel",
-                Email = "demirel@gmail.com",
-                Password = "1234"
-            });
-            Console.WriteLine(useradd.Message);
+        //private static void UserTest()
+        //{
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    var useradd = userManager.Add(new User
+        //    {
+        //        FirstName = "Nur",
+        //        LastName = "Demirel",
+        //        Email = "demirel@gmail.com",
+        //        Password = "1234"
+        //    });
+        //    Console.WriteLine(useradd.Message);
 
-            var result = userManager.GetAll();
-            if (result.Success)
-            {
-                foreach (var user in result.Data)
-                {
-                    Console.WriteLine(string.Format("{0,-5} | {1,-10} | {2,-10} | {3,-15} | {4,-5}",
-                        user.UserId, user.FirstName, user.LastName, user.Email, user.Password));
-                }
-            }
-            else
-            {
-                Console.WriteLine(result.Message);
-            }
-        }
+        //    var result = userManager.GetAll();
+        //    if (result.Success)
+        //    {
+        //        foreach (var user in result.Data)
+        //        {
+        //            Console.WriteLine(string.Format("{0,-5} | {1,-10} | {2,-10} | {3,-15} | {4,-5}",
+        //                user.Id, user.FirstName, user.LastName, user.Email, user.Password));
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine(result.Message);
+        //    }
+        //}
 
         private static void GetCarDetailsTest()
         {

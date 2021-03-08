@@ -22,6 +22,12 @@ namespace WebAPI
                 .ConfigureServices(services =>
                 services.AddSingleton<IServiceProviderFactory<ContainerBuilder>>(new AutofacServiceProviderFactory()))
                 .UseContentRoot(Directory.GetCurrentDirectory())
+                .ConfigureAppConfiguration((builderContext, config) =>
+                {
+                    Microsoft.AspNetCore.Hosting.IHostingEnvironment env = builderContext.HostingEnvironment;
+                    config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+                })
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build();
