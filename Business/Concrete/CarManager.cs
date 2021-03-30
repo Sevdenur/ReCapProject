@@ -49,7 +49,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarUpdated);
         }
 
-        [CacheAspect]
+        
         public IDataResult<List<Car>> GetAll()
         {
             if (DateTime.Now.Hour == 23)
@@ -80,6 +80,11 @@ namespace Business.Concrete
         public IResult AddTransactional(Car car)
         {
             throw new NotImplementedException();
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailByCarId(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>();//_CarDal.GetCarDetails(c => c.CarId == carId));
         }
     }
 }
